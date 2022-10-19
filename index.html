@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | E-commerce product page</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <header class="primary-header container flex">
+      <button
+        class="primary-nav-toggle"
+        aria-controls="primary-nevigation"
+        area-expanded="false"
+      ></button>
+
+      <a href="#" class="primary-header__logo">
+        <img src="images/logo.svg" alt="Logo" />
+      </a>
+
+      <nav>
+        <ul
+          id="primary-navigation"
+          data-visible="false"
+          class="primary-header__nav flex"
+        >
+          <li>
+            <a href="#" class="primary-header__nav-link text-dg">Collections</a>
+          </li>
+          <li><a href="#" class="primary-header__nav-link text-dg">Men</a></li>
+          <li>
+            <a href="#" class="primary-header__nav-link text-dg">Women</a>
+          </li>
+          <li>
+            <a href="#" class="primary-header__nav-link text-dg">About</a>
+          </li>
+          <li>
+            <a href="#" class="primary-header__nav-link text-dg">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="primary-header__side flex">
+        <div class="primary-header__cart" area-control="cart">
+          <svg
+            class="fill-transition"
+            width="22"
+            height="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+              fill="#69707D"
+              fill-rule="nonzero"
+            />
+          </svg>
+          <p
+            class="primary-header__cart-tooltip bg-org text-white fw-700 fs-100"
+            id="cart-tooltip"
+            data-visible="false"
+          ></p>
+        </div>
+        <div class="primary-header__avatar">
+          <img src="images/image-avatar.png" alt="User" />
+        </div>
+      </div>
+      <div
+        id="cart"
+        data-visible="false"
+        class="primary-header__cart-container flow"
+      >
+        <h3 class="capitalize text-blk fw-700">Cart</h3>
+
+        <div class="primary-header__cart-content flow">
+          <div class="primary-header__cart-item flex invisible">
+            <div class="img-container">
+              <img
+                id="cart-item"
+                src="images/image-product-1-thumbnail.jpg"
+                alt="Cart Item"
+              />
+            </div>
+            <div class="primary-header__item-info">
+              <p id="cart-name"></p>
+              <p class="price">
+                <span id="cart-price"></span> x
+                <span id="cart-qty"></span>&nbsp;
+                <span id="cart-total" class="price fw-700 text-blk"></span>
+              </p>
+            </div>
+            <div class="primary-header__item-delete">
+              <img src="images/icon-delete.svg" alt="Delete Icon" />
+            </div>
+          </div>
+
+          <button
+            class="primary-header__checkout-btn custom-btn fw-700 invisible"
+          >
+            Checkout
+          </button>
+
+          <p class="primary-header__cart-empty fw-700">Your cart is empty</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main container grid grid-container--main">
+      <section id="img-col" class="main__img-col flow">
+        <div class="main__product-img img-container img-container--lg">
+          <div class="main__product-btns flex">
+            <div class="main__btn flex">
+              <img src="images/icon-previous.svg" alt="Previous Image" />
+            </div>
+            <div class="main__btn flex">
+              <img src="images/icon-next.svg" alt="Next Image" />
+            </div>
+          </div>
+        </div>
+        <div class="main__thumbnail-container flex">
+          <div
+            class="main__thumbnail thumbnail img-container img-container--sm"
+          >
+            <img
+              src="images/image-product-1-thumbnail.jpg"
+              alt="Product Image1"
+            />
+            <div class="thumbnail-overlay thumbnail--active"></div>
+          </div>
+          <div
+            class="main__thumbnail thumbnail img-container img-container--sm"
+          >
+            <img
+              src="images/image-product-2-thumbnail.jpg"
+              alt="Product Image2"
+            />
+            <div class="thumbnail-overlay"></div>
+          </div>
+          <div
+            class="main__thumbnail thumbnail img-container img-container--sm"
+          >
+            <img
+              src="images/image-product-3-thumbnail.jpg"
+              alt="Product Image3"
+            />
+            <div class="thumbnail-overlay"></div>
+          </div>
+          <div
+            class="main__thumbnail thumbnail img-container img-container--sm"
+          >
+            <img
+              src="images/image-product-4-thumbnail.jpg"
+              alt="Product Image4"
+            />
+            <div class="thumbnail-overlay"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="text-col" class="main__text-col flow">
+        <p class="fs-200 text-org fw-700 uppercase">Sneaker company</p>
+        <h1 class="main__product-name fw-700 fs-600 text-blk capitalize">
+          Fall Limited Edition Sneakers
+        </h1>
+        <p class="main__product-description cust-margin">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+        <div class="main__prices flex">
+          <h2 class="main__final-price price fs-500 text-blk fw-700">125.00</h2>
+          <p class="main__discount-tag text-org bg-porg fw-700">50%</p>
+        </div>
+        <p class="main__original-price price text-gray fw-700">250.00</p>
+
+        <div class="main__btns flex">
+          <div class="main__btn-amount flex bg-lg">
+            <button id="minus" class="main__qty-btn" disabled>
+              <img src="images/icon-minus.svg" alt="Delete" />
+            </button>
+            <p id="qty" class="fw-700 text-blk">0</p>
+            <button id="plus" class="main__qty-btn">
+              <img src="images/icon-plus.svg" alt="Add" />
+            </button>
+          </div>
+          <button
+            class="main__btn-cart custom-btn custom-btn--shadow flex fw-700"
+          >
+            <svg
+              area-hidden="true"
+              width="22"
+              height="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                fill="#fff"
+                fill-rule="nonzero"
+              />
+            </svg>
+            Add to Cart
+          </button>
+          <p id="add-msg" class="fw-400 text-blk" data-visible="false"></p>
+        </div>
+      </section>
+    </main>
+
+    <div class="lightbox bg-overlay flex">
+      <div class="container--lightbox flow">
+        <div class="lightbox__btn-close flex" area-label="Close Button">
+          <svg
+            class="fill-transition flex"
+            width="14"
+            height="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+              fill="#fff"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <div class="lightbox__product-img img-container img-container--lg">
+          <div class="lightbox__image-btns flex">
+            <div class="lightbox__btn flex">
+              <svg
+                class="fill-transition"
+                width="12"
+                height="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 1 3 9l8 8"
+                  stroke="#1D2026"
+                  stroke-width="3"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="lightbox__btn flex">
+              <svg
+                class="fill-transition"
+                width="13"
+                height="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m2 1 8 8-8 8"
+                  stroke="#1D2026"
+                  stroke-width="3"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="lightbox__thumbnail-container flex">
+          <div
+            class="lightbox__thumbnail thumbnail img-container img-container--sm"
+          >
+            <img
+              src="images/image-product-1-thumbnail.jpg"
+              alt="Product Image1"
+            />
+            <div class="lightbox__overlay"></div>
+          </div>
+          <div
+            class="lightbox__thumbnail thumbnail img-container img-container--sm"
+          >
+            <img
+              src="images/image-product-2-thumbnail.jpg"
+              alt="Product Image2"
+            />
+            <div class="lightbox__overlay"></div>
+          </div>
+          <div
+            class="lightbox__thumbnail thumbnail img-container img-container--sm"
+          >
+            <img
+              src="images/image-product-3-thumbnail.jpg"
+              alt="Product Image3"
+            />
+            <div class="lightbox__overlay"></div>
+          </div>
+          <div
+            class="lightbox__thumbnail thumbnail img-container img-container--sm"
+          >
+            <img
+              src="images/image-product-4-thumbnail.jpg"
+              alt="Product Image4"
+            />
+            <div class="lightbox__overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

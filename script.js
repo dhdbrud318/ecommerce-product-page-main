@@ -128,6 +128,7 @@ $(".main__product-img").click(function (e) {
 
 lightboxCloseBtn.addEventListener("click", () => {
   lightbox.classList.remove("active");
+  lightboxOverlays[lightboxThumbIndex].classList.remove("thumbnail--active");
   lightboxThumbIndex = productThumbIndex;
 });
 

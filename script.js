@@ -52,6 +52,7 @@ const product = {
 };
 
 navToggle.addEventListener("click", () => {
+  console.log("clicked");
   const visibility = nav.getAttribute("data-visible");
   if (visibility === "true") {
     navToggle.setAttribute("area-expanded", "false");

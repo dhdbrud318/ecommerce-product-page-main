@@ -98,7 +98,7 @@ h3 {
 
 /* general */
 .container {
-  width: var(--width, 69.375rem);
+  width: 69.375rem;
   max-width: 100%;
   margin: 0 auto;
 }
@@ -515,6 +515,7 @@ h3 {
 
 .main__btn,
 .lightbox__btn {
+  cursor: pointer;
   background-color: rgb(var(--clr-light-gray));
   width: clamp(2.5rem, 1rem + 5vw, 3.5rem);
   aspect-ratio: 1;
@@ -702,21 +703,23 @@ h3 {
 }
 
 .lightbox {
+  display: none;
   position: fixed;
   inset: 0;
   z-index: 1500;
   background-color: rgb(var(--clr-blk), 0.75);
-  place-items: center;
-  place-content: center;
-  opacity: 0;
-  height: 0;
-  width: 0;
+  align-items: center;
+  /* place-items: center;
+  place-content: center; */
 }
 
-.container--lightbox {
+.lightbox__content {
+  position: relative;
+}
+
+.lightbox__content.container {
   width: 40vw;
   min-width: 35rem;
-  position: relative;
 }
 
 .lightbox__btn-close svg {
@@ -741,12 +744,11 @@ h3 {
 
 .active {
   animation: opacityIn ease-in 0.5s forwards;
-  width: 100%;
-  height: 100%;
+  display: block;
 }
 
 @media (max-width: 60em) {
-  .container--lightbox {
+  .lightbox__content.container {
     width: 90vw;
     min-width: unset;
   }
